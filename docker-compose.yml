@@ -1,0 +1,40 @@
+# AK Travel - Docker Compose
+# Basit deployment için docker-compose.yml
+
+version: '3.8'
+
+services:
+  ak-travel:
+    build: .
+    ports:
+      - "8082:80"
+    container_name: ak-travel-website
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    volumes:
+      # Geliştirme için local dosyaları mount et (isteğe bağlı)
+      # - ./assets:/usr/share/nginx/html/assets
+      # - ./index.html:/usr/share/nginx/html/index.html
+      - ./logs:/var/log/nginx
+    networks:
+      - ak-travel-network
+
+  # Gelecekte veritabanı eklemek için (isteğe bağlı)
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     POSTGRES_DB: aktravel
+  #     POSTGRES_USER: admin
+  #     POSTGRES_PASSWORD: password
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  #   networks:
+  #     - ak-travel-network
+
+networks:
+  ak-travel-network:
+    driver: bridge
+
+# volumes:
+#   postgres_data: 

@@ -1,0 +1,48 @@
+# AK Travel - .dockerignore
+
+# Git dosyaları
+.git
+.gitignore
+.gitattributes
+
+# Docker dosyaları
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Geliştirme dosyaları
+README.md
+CUSTOMIZATION.md
+env.example
+LICENSE
+
+# Log dosyaları
+logs/
+*.log
+
+# Geçici dosyalar
+.DS_Store
+Thumbs.db
+
+# IDE dosyaları
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node.js (eğer varsa)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build dosyaları
+dist/
+build/
+*.min.css
+*.min.js
+
+# Environment dosyaları
+.env
+.env.local
+.env.production 
